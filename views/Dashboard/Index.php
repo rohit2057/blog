@@ -64,6 +64,9 @@
                      <li class="nav-item">
                         <a class="nav-link " href="Dashboard/Contact">Contact</a>
                      </li>
+                     <li class="nav-item">
+                        <a class="nav-link " href="Admin/Index">Admin</a>
+                     </li>
                   </ul>
                </div>
             </nav>
@@ -79,6 +82,7 @@
                   <li><a href="Dashboard/Contact">Contact us</a></li>
                   <li><a href="Dashboard/Login">Login</a></li>
                    <li><a href="Dashboard/Register">Register</a></li>
+                   <li><a href="Admin/Index"> Admin</a></li>
                </ul>
             </div>
          </div>

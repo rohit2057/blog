@@ -36,11 +36,29 @@ use LDAP\Result;
             }
         }
 
-        // function ListBlogs()
-        // {
-        //     $admins = $this->model->getAdmin();
-        //     require_once 'views/Admin/Index.php';
-        // }
+        function ListBlogs()
+        {
+            $admins = $this->model->getAdmin();
+            require_once 'views/Admin/Index.php';
+        }
+
+        public function DeleteBlog()
+        {
+           
+            $id = $_GET["id"];
+            $this->movieobj->mid = $id;
+
+           $result = $this->adminobj->BlogDelete();
+            if ($result == TRUE) {
+                echo "<script> alert ('Deleted Successfully!'); 
+                history.go(-1)
+                </script>";
+            } else {
+                echo "<script> alert ('Failed to Delete!'); 
+                history.go(-1)
+                </script>";
+            }
+            }
 
     }
 

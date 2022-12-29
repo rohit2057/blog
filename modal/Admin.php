@@ -14,13 +14,19 @@ class Admin
         $this->conn = $conn->getConnection();
     }
 
-    // public function GetBlog()
-    // {
-    //   $sql = "SELECT * FROM blogs";
-    //   $result = $this->conn->query($sql);
-    //   return $result->fetch_all();
-    // }
+    public function GetBlog()
+    {
+      $sql = "SELECT * FROM blogs";
+      $result = $this->conn->query($sql);
+      return $result->fetch_all();
+    }
 
+    public function BlogDelete()
+    {
+        $sql = "DELETE FROM blogs WHERE id='$this->id'";
+        $result = $this->conn->query($sql);
+        return $result;
+    }
     
     public function AddBlog()
     {

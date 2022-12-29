@@ -9,7 +9,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>SB Admin 2 - Dashboard</title>
+    <title> Admin  Dashboard</title>
 
     <!-- Custom fonts for this template-->
     <link href="libraries/admin/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
@@ -146,17 +146,22 @@
                                         </tr>
                                     </thead>
                                     <tbody>
-                        
+                                    <?php
+                                    $sn=1;
+                                         while($row = $this->result->fetch_assoc()){
+                                    ?>
                                   
                                          <tr>
-                                         <td></td>
-                                         <td></td>
-                                         <td></td>
-                                         <td></td>
+                                         <td><?php echo $sn; ?></td>
+                                         <td><?php $row['title']?></td>
+                                         <td><?php $row['description'] ?></td>
+                                         <td><?php ['writer'] ?></td>
+                                         <a class="btn btn-danger" href="Admin/Delete?bid=<?php echo $row['id'] ?>" onClick="return confirm('Do you want to Delete? Y/N')"> Delete </a>
                                          </tr>
                                       
                                     </tbody>
-                                  
+                                    <?php $sn++; }
+                                 	?>
                                 </table>
 
                             </div>
