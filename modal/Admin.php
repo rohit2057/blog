@@ -14,12 +14,12 @@ class Admin
         $this->conn = $conn->getConnection();
     }
 
-    public function GetBlog()
-    {
-      $sql = "SELECT * FROM blogs";
-      $result = $this->conn->query($sql);
-      return $result->fetch_all();
-    }
+    // public function GetBlog()
+    // {
+    //   $sql = "SELECT * FROM blogs";
+    //   $result = $this->conn->query($sql);
+    //   return $result->fetch_all();
+    // }
 
     
     public function AddBlog()
