@@ -156,7 +156,8 @@
                                                 <td><?php echo $row['description']; ?></td>
                                                 <td><?php echo $row['writer']; ?></td>
                                                 <td>
-                                                    <a class="btn btn-danger" href="Admin/Delete?bid=<?php echo $row['id']; ?>" onClick="return confirm('Do you want to Delete? Y/N')">Delete</a>
+                                                <a class="btn btn-danger" href="Admin/DeleteBlog?bid=<?php echo $row['bid'] ?>" onClick="return confirm('Do you want to Delete? Y/N')"> Delete </a>
+                                                
                                                 </td>
                                             </tr>
                                         <?php

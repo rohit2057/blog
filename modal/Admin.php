@@ -17,19 +17,15 @@ class Admin
 
     public function GetBlog()
     {
-        $sql = "SELECT * FROM blogs";
+        $sql = "SELECT * FROM blogs ORDER BY bid DESC";
         $result = $this->conn->query($sql);
-        if ($result === false) {
-            // Return false if there was an error executing the query
-            return false;
-        }
-        return $result->fetch_assoc();
+        return $result;
     }
     
 
     public function BlogDelete()
     {
-        $sql = "DELETE FROM blogs WHERE id='$this->id'";
+        $sql = "DELETE FROM blogs WHERE bid='$this->bid'";
         $result = $this->conn->query($sql);
         return $result;
     }
