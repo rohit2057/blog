@@ -1,7 +1,7 @@
 <?php
 
 use LDAP\Result;
-
+    
     class AdminController
     {
         private $adminobj;
@@ -18,7 +18,7 @@ use LDAP\Result;
             require_once "views/Admin/Blog.php";
         }
 
-        function NewBlog()
+        public function NewBlog()
         {
             $this->adminobj->setTitle($_POST['title']);
             $this->adminobj->setDescription($_POST['description']);
@@ -36,10 +36,13 @@ use LDAP\Result;
             }
         }
 
-        function ListBlogs()
+       public function ListBlogs()
         {
-            $admins = $this->model->getAdmin();
-            require_once 'views/Admin/Index.php';
+            // $admins = $this->model->getAdmin();
+            $result = $this->adminobj->GetBlog();
+            
+            include 'views/Admin/Index.php';
+            var_dump($result);
         }
 
         public function DeleteBlog()

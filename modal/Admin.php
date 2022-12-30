@@ -1,4 +1,5 @@
 <?php
+require_once 'services/Config.php';
 class Admin
 {
 
@@ -10,16 +11,21 @@ class Admin
 
     public function __construct()
     {
-        $conn =new Config();
+        $conn = new Config();
         $this->conn = $conn->getConnection();
     }
 
     public function GetBlog()
     {
-      $sql = "SELECT * FROM blogs";
-      $result = $this->conn->query($sql);
-      return $result->fetch_all();
+        $sql = "SELECT * FROM blogs";
+        $result = $this->conn->query($sql);
+        if ($result === false) {
+            // Return false if there was an error executing the query
+            return false;
+        }
+        return $result->fetch_assoc();
     }
+    
 
     public function BlogDelete()
     {

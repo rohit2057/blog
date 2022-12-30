@@ -9,7 +9,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title> Admin  Dashboard</title>
+    <title> Admin Dashboard</title>
 
     <!-- Custom fonts for this template-->
     <link href="libraries/admin/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
@@ -131,10 +131,10 @@
                         <h1 class="h3 mb-0 text-gray-800">List Of Blogs</h1>
                     </div>
 
+
                     <div class="card bg-light text-black shadow">
                         <div class="card-body">
                             <div class="row">
-
                                 <table class="table table-striped">
                                     <thead>
                                         <tr>
@@ -146,28 +146,28 @@
                                         </tr>
                                     </thead>
                                     <tbody>
-                                    <?php
-                                    $sn=1;
-                                         while($row = $this->result->fetch_assoc()){
-                                    ?>
-                                  
-                                         <tr>
-                                         <td><?php echo $sn; ?></td>
-                                         <td><?php $row['title']?></td>
-                                         <td><?php $row['description'] ?></td>
-                                         <td><?php ['writer'] ?></td>
-                                         <a class="btn btn-danger" href="Admin/Delete?bid=<?php echo $row['id'] ?>" onClick="return confirm('Do you want to Delete? Y/N')"> Delete </a>
-                                         </tr>
-                                      
+                                        <?php
+                                        $sn = 1;
+                                        while ($row = $result->fetch_assoc()) {
+                                        ?>
+                                            <tr>
+                                                <td><?php echo $sn; ?></td>
+                                                <td><?php echo $row['title']; ?></td>
+                                                <td><?php echo $row['description']; ?></td>
+                                                <td><?php echo $row['writer']; ?></td>
+                                                <td>
+                                                    <a class="btn btn-danger" href="Admin/Delete?bid=<?php echo $row['id']; ?>" onClick="return confirm('Do you want to Delete? Y/N')">Delete</a>
+                                                </td>
+                                            </tr>
+                                        <?php
+                                            $sn++;
+                                        }
+                                        ?>
                                     </tbody>
-                                    <?php $sn++; }
-                                 	?>
                                 </table>
-
                             </div>
                         </div>
                     </div>
-
 
 
 
