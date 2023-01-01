@@ -92,16 +92,16 @@
         <div class="email_text">
             <form method="post" action="User/UserRegistration">
             <div class="form-group">
-                <input type="text" class="email-bt" placeholder="Name" name="name" required>
+                <input type="text" class="email-bt" placeholder="Name" id="uname" name="uname" required>
             </div>
             <div class="form-group">
-                <input type="text" class="email-bt" placeholder="Phone Number" name="phone" required>
+                <input type="text" class="email-bt" placeholder="Phone Number" id="uphone" name="uphone" required>
             </div>
             <div class="form-group">
-                <input type="text" class="email-bt" placeholder="Email" name="email" required>
+                <input type="text" class="email-bt" placeholder="Email halnu parxa yaa" id="uemail" name="uemail" required>
             </div>
             <div class="form-group">
-                <input type="password" class="email-bt" placeholder="Password" name="password" required>
+                <input type="password" class="email-bt" placeholder="Password" id="upassword" name="upassword" required>
             </div>
 
             <div class="send_btn">

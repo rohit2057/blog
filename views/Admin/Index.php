@@ -17,7 +17,7 @@
 
     <!-- Custom styles for this template-->
     <link href="Libraries/admin/css/sb-admin-2.min.css" rel="stylesheet">
-
+x
 </head>
 
 <body id="page-top">
@@ -142,6 +142,7 @@
                                             <th scope="col">Title</th>
                                             <th scope="col">Description</th>
                                             <th scope="col">Writer</th>
+                                            <th scope="col">Image</th>
                                             <th scope="col">Action</th>
                                         </tr>
                                     </thead>
@@ -156,6 +157,7 @@
                                                 <td class="title"><?php echo $row['title']; ?></td>
                                                 <td class="description"><?php echo $row['description']; ?></td>
                                                 <td class="writer"><?php echo $row['writer']; ?></td>
+                                                <td class="image"><?php echo $row['image']; ?></td>
                                                 <td>
                                                     <a class="btn btn-danger" href="Admin/DeleteBlog?bid=<?php echo $row['bid'] ?>" onClick="return confirm('Do you want to Delete? Y/N')"> Delete </a>
                                                     <!-- <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#blog">update</button> -->

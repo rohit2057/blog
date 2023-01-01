@@ -176,7 +176,7 @@
                                     </div>
                                 </div>
 
-                                <!-- <div class="row">
+                                <div class="row">
                                     <div class="col">
                                         <div class="form-group">
                                             <label for="writer">Image<span class="text-danger">*</span></label>
@@ -184,7 +184,7 @@
                                                    id="image" name="image" />
                                         </div>
                                     </div>
-                                </div> -->
+                                </div>
 
          
 
