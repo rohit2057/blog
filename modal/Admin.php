@@ -4,9 +4,14 @@ class Admin
 {
 
     private $conn;
-    private $title;
-    private $writer;
-    private $description;
+    // private $title;
+    // private $writer;
+    // private $description;
+
+    // public $conn;
+    // public $title;
+    // public $writer;
+    // public $description;
 
 
     public function __construct()
@@ -29,11 +34,19 @@ class Admin
         $result = $this->conn->query($sql);
         return $result;
     }
+
+    public function UpdateBlog()
+    {
+        $sql = "UPDATE blogs SET title='$this->title', description='$this->description', writer='$this->writer' WHERE bid='$this->bid'";
+        $result = $this->conn->query($sql);
+        return $result;
+    }
+    
     
     public function AddBlog()
     {
-        $sql = "INSERT INTO blogs(title,writer,description)
-        VALUES('$this->title', '$this->writer', '$this->description')";
+        $sql = "INSERT INTO blogs(title,writer,description,image)
+        VALUES('$this->title', '$this->writer', '$this->description','$this->image')";
         $result = $this->conn->query($sql);
         return $result;
     }
@@ -65,5 +78,13 @@ class Admin
     public function setDescription($value) {
       $this->description = $value;
     }
+
+    public function getImage() {
+      return $this->image;
+    }
+    public function setImage($value) {
+      $this->image = $value;
+    }
+
 
 }

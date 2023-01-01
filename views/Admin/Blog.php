@@ -176,6 +176,16 @@
                                     </div>
                                 </div>
 
+                                <!-- <div class="row">
+                                    <div class="col">
+                                        <div class="form-group">
+                                            <label for="writer">Image<span class="text-danger">*</span></label>
+                                            <input type="file" class="form-control" placeholder="insert image" required=""
+                                                   id="image" name="image" />
+                                        </div>
+                                    </div>
+                                </div> -->
+
          
 
 

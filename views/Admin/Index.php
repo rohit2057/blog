@@ -151,13 +151,15 @@
                                         while ($row = $result->fetch_assoc()) {
                                         ?>
                                             <tr>
-                                                <td><?php echo $sn; ?></td>
-                                                <td><?php echo $row['title']; ?></td>
-                                                <td><?php echo $row['description']; ?></td>
-                                                <td><?php echo $row['writer']; ?></td>
+                                                <input type="hidden" name="id" value=<?= $row['bid']; ?> class="bid">
+                                                <td class=""><?php echo $sn; ?></td>
+                                                <td class="title"><?php echo $row['title']; ?></td>
+                                                <td class="description"><?php echo $row['description']; ?></td>
+                                                <td class="writer"><?php echo $row['writer']; ?></td>
                                                 <td>
-                                                <a class="btn btn-danger" href="Admin/DeleteBlog?bid=<?php echo $row['bid'] ?>" onClick="return confirm('Do you want to Delete? Y/N')"> Delete </a>
-                                                
+                                                    <a class="btn btn-danger" href="Admin/DeleteBlog?bid=<?php echo $row['bid'] ?>" onClick="return confirm('Do you want to Delete? Y/N')"> Delete </a>
+                                                    <!-- <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#blog">update</button> -->
+                                                    <a class="btn btn-primary" data-toggle="modal" data-target="#updateModal" onclick="fillData(this)"> Update </a>
                                                 </td>
                                             </tr>
                                         <?php
@@ -174,7 +176,64 @@
 
                 </div>
                 <!-- /.container-fluid -->
+                <!-- Button trigger modal -->
 
+               
+                <!-- Modal to -->
+                <div class="modal fade" id="updateModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-centered" role="document">
+                        <div class="modal-content">
+                        <form action="Admin/Bupdate" method="POST">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLongTitle">Update Blog</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+                               
+                                    <input type="hidden" name="bid" id="bid">
+                                    <div class="modal-body border-none">
+                                        <div class="card-body p-0">
+                                            <div class="row">
+                                                <div class="col">
+                                                    <div class="form-group">
+                                                        <label for="company name">Title:</label>
+                                                        <input type="text" class="form-control"  required="" id="title" name="title" maxlength="30" />
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col">
+                                                    <div class="form-group">
+                                                        <label for="Description">Description:</label>
+                                                        <input type="text" class="form-control"  required="" id="description" name="description" />
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="row">
+                                                <div class="col">
+                                                    <div class="form-group">
+                                                        <label for="writer">Writer:</label>
+                                                        <input type="text" class="form-control"  required="" id="writer" name="writer"/>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                          
+                                        </div>
+                                    </div>
+                            
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                <button type="submit" name="updateblog" class="btn btn-primary">Update</button>
+                            </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
             </div>
             <!-- End of Main Content -->
 
@@ -234,7 +293,19 @@
     <!-- Page level custom scripts -->
     <script src="libraries/admin/js/demo/chart-area-demo.js"></script>
     <script src="libraries/admin/js/demo/chart-pie-demo.js"></script>
-
+    <script>
+       function fillData(elm){
+            $row = $(elm).closest('tr');
+            $title = $row.find('.title').html();
+            $description = $row.find('.description').html();
+            $writer = $row.find('.writer').html();
+            $bid = $row.find('.bid').val();
+            $('#title').val($title);
+            $('#description').val($description);
+            $('#writer').val($writer);
+            $('#bid').val($bid);
+        }
+    </script>
 </body>
 
 </html>

@@ -28,12 +28,13 @@ class AdminController
         $this->adminobj->setTitle($_POST['title']);
         $this->adminobj->setDescription($_POST['description']);
         $this->adminobj->setWriter($_POST['writer']);
+        $this->adminobj->setImage($_POST['image']);
 
         $result = $this->adminobj->AddBlog();
         if ($result == TRUE) {
-            echo "<script> alert ('Inserted Successfully!'); 
-			            history.go(-1)
-			           </script>";
+            echo "<script> alert ('Updated Successfully!'); 
+            window.location.href='http://localhost/cc/Admin/Blog';
+            </script>";
         } else {
             echo "<script> alert ('Failed to Insert!'); 
 			            history.go(-1)
@@ -46,7 +47,6 @@ class AdminController
 
         $result = $this->adminobj->GetBlog();
         return $result;
-     
     }
 
     public function DeleteBlog()
@@ -55,10 +55,10 @@ class AdminController
         $bid = $_GET["bid"];
         $this->adminobj->bid = $bid;
 
-       $result = $this->adminobj->BlogDelete();
+        $result = $this->adminobj->BlogDelete();
         if ($result == TRUE) {
-            echo "<script> alert ('Deleted Successfully!'); 
-            history.go(-1)
+            echo "<script> alert ('Updated Successfully!'); 
+            window.location.href='http://localhost/cc/Admin/Index';
             </script>";
         } else {
             echo "<script> alert ('Failed to Delete!'); 
@@ -67,4 +67,33 @@ class AdminController
         }
     }
 
+    function UpdateBlog()
+    {
+
+        $bid = $_GET["bid"] ?? "";
+        $this->adminobj->bid = $bid;
+        $result = $this->adminobj->GetBlog();
+        require_once('views/Admin/Index.php');
+
+
+    }
+
+  
+    function Bupdate()
+    {
+        $this->adminobj->bid =  $_POST["bid"];
+        $this->adminobj->title = $_POST["title"];
+        $this->adminobj->description = $_POST["description"];
+        $this->adminobj->writer = $_POST["writer"];
+        $result = $this->adminobj->UpdateBlog();
+        if ($result == TRUE) {
+            echo "<script> alert ('Updated Successfully!'); 
+               window.location.href='http://localhost/cc/Admin/Index';
+               </script>";
+        } else {
+            echo "<script> alert ('Failed to Update!'); 
+                
+                     </script>";
+        }
+    }
 }
