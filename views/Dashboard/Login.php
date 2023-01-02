@@ -88,7 +88,7 @@
 <!-- contact section start -->
 <div class="contact_section layout_padding">
     <div class="container">
-        <h1 class="contact_taital">Register</h1>
+        <h1 class="contact_taital">Login</h1>
         <div class="email_text">
             <form method="post" action="User/LoginCheck">
             <div class="form-group">

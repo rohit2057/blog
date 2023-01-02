@@ -15,7 +15,8 @@ class UserController
     {
         $this->userobj->uname = $_POST['uname'];
         $this->userobj->uemail = $_POST['uemail'];
-        $this->userobj->upassword = $_POST['upassword'];
+        // $this->userobj->upassword = $_POST['upassword'];
+        $this->userobj->upassword = password_hash($_POST['upassword'], PASSWORD_DEFAULT);
         $this->userobj->uphone = $_POST['uphone'];
 
 

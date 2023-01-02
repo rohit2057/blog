@@ -25,6 +25,17 @@ class Admin
         $result = $this->conn->query($sql);
         return $result;
     }
+
+    public function GetBlogDetails($bid)
+    {
+      $sql= "SELECT * FROM blogs WHERE bid='{$bid}'";
+
+      $result= $this->conn->query($sql);
+      if($result->num_rows > 0){
+        return $result;
+       
+      }
+    }
     
 
     public function BlogDelete()
@@ -87,4 +98,3 @@ class Admin
 
 
 }
-?>

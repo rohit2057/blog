@@ -17,7 +17,8 @@
 
     <!-- Custom styles for this template-->
     <link href="Libraries/admin/css/sb-admin-2.min.css" rel="stylesheet">
-x
+
+    <script src="https://cdn.ckeditor.com/4.20.1/standard/ckeditor.js"></script>
 </head>
 
 <body id="page-top">
@@ -157,13 +158,13 @@ x
                                                 <td class="title"><?php echo $row['title']; ?></td>
                                                 <td class="description"><?php echo $row['description']; ?></td>
                                                 <td class="writer"><?php echo $row['writer']; ?></td>
-                                                <?php $image = "http://localhost/cc/libraries/images/".$row['image']; ?>
-                                                <td><img src="<?php echo $image;?>" width="70" height="70"/> </td>
-                                                
-                                                
+                                                <?php $image = "http://localhost/cc/libraries/images/" . $row['image']; ?>
+                                                <td><img src="<?php echo $image; ?>" width="70" height="70" /> </td>
 
-                                                 
-                                               
+
+
+
+
                                                 <td>
                                                     <a class="btn btn-danger" href="Admin/DeleteBlog?bid=<?php echo $row['bid'] ?>" onClick="return confirm('Do you want to Delete? Y/N')"> Delete </a>
                                                     <!-- <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#blog">update</button> -->
@@ -179,27 +180,21 @@ x
                             </div>
                         </div>
                     </div>
-
-
-
                 </div>
                 <!-- /.container-fluid -->
                 <!-- Button trigger modal -->
 
-               
+
                 <!-- Modal to -->
                 <div class="modal fade" id="updateModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
                     <div class="modal-dialog modal-dialog-centered" role="document">
                         <div class="modal-content">
-                        <form action="Admin/Bupdate" method="POST">
-                            <div class="modal-header">
-                                <h5 class="modal-title" id="exampleModalLongTitle">Update Blog</h5>
-                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                    <span aria-hidden="true">&times;</span>
-                                </button>
-                            </div>
-                            <div class="modal-body">
-                               
+                            <form action="Admin/Bupdate" method="POST">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="exampleModalLongTitle">Update Blog</h5>
+                                </div>
+                                <div class="modal-body">
+
                                     <input type="hidden" name="bid" id="bid">
                                     <div class="modal-body border-none">
                                         <div class="card-body p-0">
@@ -207,7 +202,7 @@ x
                                                 <div class="col">
                                                     <div class="form-group">
                                                         <label for="company name">Title:</label>
-                                                        <input type="text" class="form-control"  required="" id="title" name="title" maxlength="30" />
+                                                        <input type="text" class="form-control" required="" id="title" name="title" maxlength="30" />
                                                     </div>
                                                 </div>
                                             </div>
@@ -215,7 +210,10 @@ x
                                                 <div class="col">
                                                     <div class="form-group">
                                                         <label for="Description">Description:</label>
-                                                        <input type="text" class="form-control"  required="" id="description" name="description" />
+                                                        <!-- <input type="text" class="form-control" required="" id="description" name="description" /> -->
+                                                        <textarea id="description" name="description" class="form-control">
+
+                                                        </textarea>
                                                     </div>
                                                 </div>
                                             </div>
@@ -224,20 +222,20 @@ x
                                                 <div class="col">
                                                     <div class="form-group">
                                                         <label for="writer">Writer:</label>
-                                                        <input type="text" class="form-control"  required="" id="writer" name="writer"/>
+                                                        <input type="text" class="form-control" required="" id="writer" name="writer" />
                                                     </div>
                                                 </div>
                                             </div>
 
-                                          
+
                                         </div>
                                     </div>
-                            
-                            </div>
-                            <div class="modal-footer">
-                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                <button type="submit" name="updateblog" class="btn btn-primary">Update</button>
-                            </div>
+
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                    <button type="submit" name="updateblog" class="btn btn-primary">Update</button>
+                                </div>
                             </form>
                         </div>
                     </div>
@@ -302,7 +300,28 @@ x
     <script src="libraries/admin/js/demo/chart-area-demo.js"></script>
     <script src="libraries/admin/js/demo/chart-pie-demo.js"></script>
     <script>
-       function fillData(elm){
+        CKEDITOR.replace('description', {
+            toolbar: [{
+                    name: 'forms',
+                    items: ['Form', 'Checkbox', 'Radio', 'TextField', 'Textarea', 'Select', 'Button', 'ImageButton', 'HiddenField']
+                },
+                {
+                    name: 'basicstyles',
+                    groups: ['basicstyles', 'cleanup'],
+                    items: ['Bold', 'Italic']
+                },
+                {
+                    name: 'paragraph',
+                    groups: ['list'],
+                    items: ['NumberedList', 'BulletedList', '-', '-', 'CreateDiv', '-']
+                },
+            ],
+            enterMode: CKEDITOR.ENTER_P,
+            shiftEnterMode: CKEDITOR.ENTER_BR
+        });
+
+
+        function fillData(elm) {
             $row = $(elm).closest('tr');
             $title = $row.find('.title').html();
             $description = $row.find('.description').html();
@@ -314,6 +333,7 @@ x
             $('#bid').val($bid);
         }
     </script>
+
 </body>
 
 </html>

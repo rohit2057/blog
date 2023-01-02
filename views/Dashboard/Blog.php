@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-    <base href="http://localhost/cc/">
+   <base href="http://localhost/cc/">
    <!-- basic -->
    <meta charset="utf-8">
    <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -32,8 +32,7 @@
    <!-- owl stylesheets -->
    <link rel="stylesheet" href="css/owl.carousel.min.css">
    <link rel="stylesheet" href="css/owl.theme.default.min.css">
-   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.css"
-      media="screen">
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.css" media="screen">
 </head>
 
 <body>
@@ -43,8 +42,7 @@
          <div class="mobile_menu">
             <nav class="navbar navbar-expand-lg navbar-light bg-light">
                <div class="logo_mobile"><a href="index.html"><img src="images/logo.png"></a></div>
-               <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
-                  aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+               <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                   <span class="navbar-toggler-icon"></span>
                </button>
                <div class="collapse navbar-collapse" id="navbarNav">
@@ -77,8 +75,8 @@
                   <li><a href="Dashboard/Services">Services</a></li>
                   <li><a href="Dashboard/Blog">Blog</a></li>
                   <li><a href="Dashboard/Contact">Contact us</a></li>
-                   <li><a href="Dashboard/Login">Login</a></li>
-                   <li><a href="Dashboard/Register">Register</a></li>
+                  <li><a href="Dashboard/Login">Login</a></li>
+                  <li><a href="Dashboard/Register">Register</a></li>
                </ul>
             </div>
          </div>
@@ -86,16 +84,37 @@
    </div>
    <!-- header section end -->
    <!-- blog section start -->
-   <div class="blog_section layout_padding margin_top_90">
-      <div class="container">
-         <h1 class="blog_taital">See Our Video</h1>
-         <p class="blog_text">many variations of passages of Lorem Ipsum available, but the majority have suffered
-            alteration in some form, by injected humour, or randomised words which</p>
-         <div class="play_icon_main">
-            <div class="play_icon"><a href="#"><img src="libraries/images/play-icon.png"></a></div>
-         </div>
+
+   <body class="container-fluid">
+      <div class="row container-flex">
+         <?php
+         while ($row = $result->fetch_assoc()) {
+         ?>
+            <div class="col-xl-3 col-lg-3 col-md-6 col-sm-12 col mt-3">
+               <div class="card  mt-2" style="height:25rem;">
+                  <img class="card-img-top" src="libraries/images/<?= $row['image'] ?>" alt="Card image cap" style="height:20rem;">
+                  <div class="card-body">
+                     <h5 class="card-title"><?= $row['title'] ?></h5>
+                     
+                     <!-- <a href="Dashboard/ViewBlog" class="btn btn-primary">View Blog</a> -->
+                     
+                     <a href="Dashboard/ViewBlog?bid=<?=$row['bid']?>" class="btn btn-primary">view</a>
+      
+                    
+
+
+                  </div>
+               </div>
+            </div>
+         <?php
+         }
+         ?>
       </div>
-   </div>
+   </body>
+
+
+
+
    <!-- blog section end -->
    <!-- footer section start -->
    <div class="footer_section layout_padding">
@@ -141,6 +160,14 @@
    <!-- javascript -->
    <script src="libraries/js/owl.carousel.js"></script>
    <script src="https:cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.js"></script>
+   <!-- <script>
+function openCard() {
+  var card = document.getElementById("myCard");
+  card.classList.add("open");
+}
+</script> -->
+
+
 </body>
 
 </html>

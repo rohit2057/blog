@@ -21,8 +21,8 @@ class AdminController
     }
 
     public function Blog()
-    {
-        require_once "views/Admin/Blog.php";
+    {   
+       require_once "views/Admin/Blog.php";
     }
 
     public function NewBlog()
@@ -38,7 +38,7 @@ class AdminController
         $result = $this->adminobj->AddBlog();
         if ($result == TRUE) {
             echo "<script> alert ('inserted Successfully!'); 
-            window.location.href='http://localhost/cc/Admin/Blog';
+            window.location.href='http://localhost/cc/Admin/Index';
             </script>";
         } else {
             echo "<script> alert ('Failed to Insert!'); 
@@ -102,4 +102,3 @@ class AdminController
         }
     }
 }
-?>
