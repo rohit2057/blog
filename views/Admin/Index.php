@@ -157,7 +157,9 @@ x
                                                 <td class="title"><?php echo $row['title']; ?></td>
                                                 <td class="description"><?php echo $row['description']; ?></td>
                                                 <td class="writer"><?php echo $row['writer']; ?></td>
-                                                 <td><img src="<?php echo $row['image'];?>" width="70" height="70"/> </td>
+                                                <?php $image = "http://localhost/cc/libraries/images/".$row['image']; ?>
+                                                <td><img src="<?php echo $image;?>" width="70" height="70"/> </td>
+                                                
                                                 
 
                                                  

@@ -30,12 +30,14 @@ class AdminController
         $this->adminobj->setTitle($_POST['title']);
         $this->adminobj->setDescription($_POST['description']);
         $this->adminobj->setWriter($_POST['writer']);
-        $this->adminobj->setImage($_POST['image']);
-       
-
+    
+        $post_image=$_FILES['image']['name'];
+        $post_temp_image=$_FILES['image']['tmp_name'];
+        move_uploaded_file("{$post_temp_image}", "libraries/images/{$post_image}");
+        $this->adminobj->setImage($post_image);
         $result = $this->adminobj->AddBlog();
         if ($result == TRUE) {
-            echo "<script> alert ('Updated Successfully!'); 
+            echo "<script> alert ('inserted Successfully!'); 
             window.location.href='http://localhost/cc/Admin/Blog';
             </script>";
         } else {
