@@ -157,7 +157,11 @@ x
                                                 <td class="title"><?php echo $row['title']; ?></td>
                                                 <td class="description"><?php echo $row['description']; ?></td>
                                                 <td class="writer"><?php echo $row['writer']; ?></td>
-                                                <td class="image"><?php echo $row['image']; ?></td>
+                                                 <td><img src="<?php echo $row['image'];?>" width="70" height="70"/> </td>
+                                                
+
+                                                 
+                                               
                                                 <td>
                                                     <a class="btn btn-danger" href="Admin/DeleteBlog?bid=<?php echo $row['bid'] ?>" onClick="return confirm('Do you want to Delete? Y/N')"> Delete </a>
                                                     <!-- <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#blog">update</button> -->

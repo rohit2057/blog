@@ -1,20 +1,22 @@
 <?php
 
 use LDAP\Result;
+require_once "modal/Admin.php";
 
 class AdminController
 {
     private $adminobj;
+
+    
     function __construct()
     {
 
-        include 'modal/Admin.php';
+        // include 'modal/Admin.php';
         $this->adminobj = new Admin();
     }
     public function Index()
     {
         $result = $this->ListBlogs();
-
         require_once "views/Admin/Index.php";
     }
 
@@ -29,6 +31,7 @@ class AdminController
         $this->adminobj->setDescription($_POST['description']);
         $this->adminobj->setWriter($_POST['writer']);
         $this->adminobj->setImage($_POST['image']);
+       
 
         $result = $this->adminobj->AddBlog();
         if ($result == TRUE) {
@@ -97,3 +100,4 @@ class AdminController
         }
     }
 }
+?>

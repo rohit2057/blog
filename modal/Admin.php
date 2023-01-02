@@ -4,14 +4,13 @@ class Admin
 {
 
     private $conn;
-    // private $title;
-    // private $writer;
-    // private $description;
+    public $bid;
+    public $title;
+    public $writer;
+    public $description;
+    public $image;
 
-    // public $conn;
-    // public $title;
-    // public $writer;
-    // public $description;
+
 
 
     public function __construct()

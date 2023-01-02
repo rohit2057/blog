@@ -3,10 +3,12 @@ require_once 'services/Config.php';
 class User
 {
     private $conn;
-    // private $uname;
-    // private $uemail;
-    // private $upassword;
-    // private $uphone;
+    public $uname;
+    public $uemail;
+    public $upassword;
+    public $uphone;
+    public $username;
+    public $password;
 
     public function __construct()
     {
@@ -53,4 +55,18 @@ class User
         $result = $this->conn->query($sql);
         return $result;
     }
+
+    function CheckUsers(){
+      
+        $sql="SELECT * FROM users WHERE uemail='$this->username' AND upassword='$this->password'";
+        $result=$this->conn->query($sql);
+        if($result->num_rows > 0){
+        return $result;
+        }else
+        {
+            return 0;
+        }
+
+	}
 }
+?>

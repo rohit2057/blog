@@ -88,15 +88,20 @@
 <!-- contact section start -->
 <div class="contact_section layout_padding">
     <div class="container">
-        <h1 class="contact_taital">Login</h1>
+        <h1 class="contact_taital">Register</h1>
         <div class="email_text">
+            <form method="post" action="User/LoginCheck">
             <div class="form-group">
-                <input type="text" class="email-bt" placeholder="Email" name="Email">
+                <input type="text" class="email-bt" placeholder="Name" id="uname" name="username" required>
             </div>
             <div class="form-group">
-                <input type="password" class="email-bt" placeholder="Password" name="Password">
+                <input type="password" class="email-bt" placeholder="Password" id="upassword" name="password" required>
             </div>
-            <div class="send_btn"><a href="#">Login</a></div>
+
+            <div class="send_btn">
+                <input type="submit" name="login" value="login" />
+            </div>
+            </form>
         </div>
     </div>
 </div>
