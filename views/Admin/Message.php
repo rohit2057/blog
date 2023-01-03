@@ -9,7 +9,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>SB Admin 2 - Dashboard</title>
+    <title> Admin Dashboard</title>
 
     <!-- Custom fonts for this template-->
     <link href="libraries/admin/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
@@ -17,8 +17,6 @@
 
     <!-- Custom styles for this template-->
     <link href="Libraries/admin/css/sb-admin-2.min.css" rel="stylesheet">
-    <script src="https://cdn.ckeditor.com/4.20.1/standard/ckeditor.js"></script>
-
 </head>
 
 <body id="page-top">
@@ -58,15 +56,14 @@
             <!-- Divider -->
             <hr class="sidebar-divider">
 
-            <li class="nav-item active">
-                <a class="nav-link" href="Admin/Message">
+           <li class="nav-item active">
+                <a class="nav-link" href="#">
                     <i class="fas fa-fw fa-tachometer-alt"></i>
                     <span>Messages</span></a>
             </li>
 
             <!-- Divider -->
             <hr class="sidebar-divider">
-
 
 
         </ul>
@@ -135,73 +132,67 @@
                 <!-- Begin Page Content -->
                 <div class="container-fluid">
 
-                    <!-- Page Heading -->
-                    <div class="d-sm-flex align-items-center justify-content-between mb-4">
-                        <h1 class="h3 mb-0 text-gray-800">Dashboard</h1>
-                    </div>
-
-
-                    <div class="container">
-                        <form method="POST" action="Admin/NewBlog" enctype="multipart/form-data">
-                            <div class="modal-body border-none">
-                                <div class="card-body p-0">
-
-                                    <div class="row">
-                                        <div class="col">
-                                            <div class="form-group">
-                                                <label for="company name">Title<span class="text-danger">*</span></label>
-                                                <input type="text" class="form-control" placeholder="title" required="" id="title" name="title" />
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <div class="row">
-                                        <div class="col">
-
-                                        <div class="form-group">
-                                        <label for="writer">Description<span class="text-danger">*</span></label>
-                                            <textarea id="editor" name="description" required="" class="form-control"></textarea>
-                                        </div>
-                                         
-                                        </div>
-                                    </div>
-
-                                    <div class="row">
-                                        <div class="col">
-                                            <div class="form-group">
-                                                <label for="writer">Writer<span class="text-danger">*</span></label>
-                                                <input type="text" class="form-control" placeholder="writer" required="" id="writer" name="writer" />
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <div class="row">
-                                        <div class="col">
-                                            <div class="form-group">
-                                                <label for="writer">Image<span class="text-danger">*</span></label>
-                                                <input type="file" class="form-control" placeholder="insert image" required="" id="image" name="image" />
-                                            </div>
-                                        </div>
-                                    </div>
-
-
-                                </div>
-                            </div>
-
-                            <div class="row">
-                                <div class="col">
-                                    <input type="submit" name="insert" value="Add" class="btn btn-primary" />
-
-                                </div>
-
-                            </div>
-                        </form>
-                    </div>
-
-
+                    this is message page
                 </div>
                 <!-- /.container-fluid -->
+                <!-- Button trigger modal -->
 
+
+                <!-- Modal to -->
+                <div class="modal fade" id="updateModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-centered" role="document">
+                        <div class="modal-content">
+                            <form action="Admin/Bupdate" method="POST">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="exampleModalLongTitle">Update Blog</h5>
+                                </div>
+                                <div class="modal-body">
+
+                                    <input type="hidden" name="bid" id="bid">
+                                    <div class="modal-body border-none">
+                                        <div class="card-body p-0">
+                                            <div class="row">
+                                                <div class="col">
+                                                    <div class="form-group">
+                                                        <label for="company name">Title:</label>
+                                                        <input type="text" class="form-control" required="" id="title" name="title" maxlength="30" />
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col">
+                                                    <div class="form-group">
+                                                        <label for="Description">Description:</label>
+                                                        
+                                                        <textarea id="description" name="description" class="form-control">
+
+                                                        </textarea>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="row">
+                                                <div class="col">
+                                                    <div class="form-group">
+                                                        <label for="writer">Writer:</label>
+                                                        <input type="text" class="form-control" required="" id="writer" name="writer" />
+                                                    </div>
+                                                </div>
+                                            </div>
+
+
+                                        </div>
+                                    </div>
+
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                    <button type="submit" name="updateblog" class="btn btn-primary">Update</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
             </div>
             <!-- End of Main Content -->
 
@@ -255,21 +246,14 @@
     <!-- Custom scripts for all pages-->
     <script src="libraries/admin/js/sb-admin-2.min.js"></script>
 
+    <!-- Page level plugins -->
+    <script src="libraries/admin/vendor/chart.js/Chart.min.js"></script>
 
+    <!-- Page level custom scripts -->
+    <script src="libraries/admin/js/demo/chart-area-demo.js"></script>
+    <script src="libraries/admin/js/demo/chart-pie-demo.js"></script>
+   
 
-<script>
-
-CKEDITOR.replace( 'editor' ,{
-    toolbar: [
-    { name: 'forms', items: [ 'Form', 'Checkbox', 'Radio', 'TextField', 'Textarea', 'Select', 'Button', 'ImageButton', 'HiddenField' ] },
-    { name: 'basicstyles', groups: [ 'basicstyles', 'cleanup' ], items: [ 'Bold', 'Italic' ] },
-    { name: 'paragraph', groups: [ 'list' ], items: [ 'NumberedList', 'BulletedList', '-',  '-', 'CreateDiv', '-' ] },],
-    enterMode: CKEDITOR.ENTER_P,
-    shiftEnterMode: CKEDITOR.ENTER_BR
-    });
-
-
-</script>
 </body>
 
 </html>

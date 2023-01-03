@@ -72,7 +72,7 @@ class AdminController
         }
     }
 
-    function UpdateBlog()
+    public function UpdateBlog()
     {
 
         $bid = $_GET["bid"] ?? "";
@@ -84,7 +84,7 @@ class AdminController
     }
 
   
-    function Bupdate()
+     public function Bupdate()
     {
         $this->adminobj->bid =  $_POST["bid"];
         $this->adminobj->title = $_POST["title"];
@@ -101,4 +101,9 @@ class AdminController
                      </script>";
         }
     }
+
+    public function Message(){
+        require_once "views/Admin/Message.php";
+    }
+
 }

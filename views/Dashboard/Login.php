@@ -73,7 +73,7 @@
             <div class="menu_main">
                 <ul>
                     <li class="active"><a href="Dashboard/Index">Home</a></li>
-                    <li><a href="Dashboard/Iabout">About</a></li>
+                    <li><a href="Dashboard/About">About</a></li>
                     <li><a href="Dashboard/Services">Services</a></li>
                     <li><a href="Dashboard/Blog">Blog</a></li>
                     <li><a href="Dashboard/Contact">Contact us</a></li>

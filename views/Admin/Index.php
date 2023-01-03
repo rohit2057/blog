@@ -58,7 +58,14 @@
             <!-- Divider -->
             <hr class="sidebar-divider">
 
+           <li class="nav-item active">
+                <a class="nav-link" href="Admin/Message">
+                    <i class="fas fa-fw fa-tachometer-alt"></i>
+                    <span>Messages</span></a>
+            </li>
 
+            <!-- Divider -->
+            <hr class="sidebar-divider">
 
 
         </ul>
@@ -210,7 +217,7 @@
                                                 <div class="col">
                                                     <div class="form-group">
                                                         <label for="Description">Description:</label>
-                                                        <!-- <input type="text" class="form-control" required="" id="description" name="description" /> -->
+                                                        
                                                         <textarea id="description" name="description" class="form-control">
 
                                                         </textarea>

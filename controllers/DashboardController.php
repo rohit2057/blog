@@ -58,7 +58,27 @@
             $result = $this->dashobj->GetBlog();
             return $result;
         }
+        
+        public function NewContact()
+        {
+            $this->dashobj->setName($_POST['cname']);
+            $this->dashobj->setPhone($_POST['cphone']);
+            $this->dashobj->setEmail($_POST['cemail']);
+            $this->dashobj->setMessage($_POST['cmessage']);
 
+            $result = $this->dashobj->AddContact();
+
+            if ($result == TRUE) {
+                echo "<script> alert ('Message sent successfully Successfully!'); 
+                window.location.href='http://localhost/cc/Dashboard/Contact';
+                </script>";
+            } else {
+                echo "<script> alert ('Failed to Insert!'); 
+                            history.go(-1)
+                           </script>";
+            }
+
+        }
 
     }
 

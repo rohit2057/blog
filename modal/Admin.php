@@ -9,7 +9,10 @@ class Admin
     public $writer;
     public $description;
     public $image;
-
+    public $name;
+    public $email;
+    public $message;
+    public $phone;
 
 
 
@@ -96,5 +99,44 @@ class Admin
       $this->image = $value;
     }
 
+    public function AddContact()
+    {
+        $sql = "INSERT INTO contact(cname,cphone,cemail,cmessage)
+        VALUES('$this->name', '$this->phone', '$this->email','$this->message')";
+        $result = $this->conn->query($sql);
+        return $result;
+    }
+
+    public function getName(){
+      return $this->name;
+    }
+
+    public function setName($value){
+      $this->name = $value;
+    }
+
+    public function getPhone(){
+      return $this->phone;
+    }
+
+    public function setPhone($value){
+      $this->phone = $value;
+    }
+
+    public function getEmail(){
+      return $this->email;
+    }
+
+    public function setEmail($value){
+      $this->email = $value;
+    }
+
+    public function getMessage(){
+      return $this->name;
+    }
+
+    public function setMessage($value){
+      $this->message = $value;
+    }
 
 }

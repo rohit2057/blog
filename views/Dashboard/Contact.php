@@ -73,7 +73,7 @@
             <div class="menu_main">
                <ul>
                   <li class="active"><a href="Dashboard/Index">Home</a></li>
-                  <li><a href="Dashboard/Iabout">About</a></li>
+                  <li><a href="Dashboard/About">About</a></li>
                   <li><a href="Dashboard/Services">Services</a></li>
                   <li><a href="Dashboard/Blog">Blog</a></li>
                   <li><a href="Dashboard/Contact">Contact us</a></li>
@@ -89,21 +89,25 @@
    <div class="contact_section layout_padding">
       <div class="container">
          <h1 class="contact_taital">Request A Call Back</h1>
+         <form method="POST" action="Dashboard/NewContact" enctype="multipart/form-data">
          <div class="email_text">
             <div class="form-group">
-               <input type="text" class="email-bt" placeholder="Name" name="Email">
+               <input type="text" class="email-bt" placeholder="Name" name="cname">
             </div>
             <div class="form-group">
-               <input type="text" class="email-bt" placeholder="Phone Number" name="Email">
+               <input type="text" class="email-bt" placeholder="Phone Number" name="cphone">
             </div>
             <div class="form-group">
-               <input type="text" class="email-bt" placeholder="Email" name="Email">
+               <input type="text" class="email-bt" placeholder="Email" name="cemail">
             </div>
             <div class="form-group">
-               <textarea class="massage-bt" placeholder="Massage" rows="5" id="comment" name="Massage"></textarea>
+               <textarea class="massage-bt" placeholder="Message" rows="5" id="comment" name="cmessage"></textarea>
             </div>
-            <div class="send_btn"><a href="#">SEND</a></div>
+            <!-- <div class="send_btn"><a href="#">SEND</a></div> -->
+
+            <input type="submit" name="insert" value="Add" class="btn btn-primary" />
          </div>
+         </form>
       </div>
    </div>
    <!-- contact section end -->
